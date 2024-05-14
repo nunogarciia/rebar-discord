@@ -7,11 +7,10 @@ let client: Client = undefined;
 
 export function init() {
     if ( !DiscordConfig.BOT_TOKEN || DiscordConfig.BOT_TOKEN.length === 0 ) {
-        throw new Error( "Bot token is empty" );
+        alt.logError("Bot token is empty");
     }
 
-
-    client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers] });
+    client = new Client({ intents: DiscordConfig.INTENTS });
 
     client.on('ready', () => {
         alt.log('[DISCORD-AUTH]', `Logged in as ${client.user.tag}!`);
