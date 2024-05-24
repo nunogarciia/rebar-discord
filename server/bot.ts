@@ -1,19 +1,16 @@
-import {Client, GatewayIntentBits} from "discord.js";
 import alt from "alt-server";
 import {DiscordConfig} from "./config.js";
+import {client} from "./client.js";
 
 let botStateIndex: number = -1;
-let client: Client = undefined;
 
 export function init() {
     if ( !DiscordConfig.BOT_TOKEN || DiscordConfig.BOT_TOKEN.length === 0 ) {
         alt.logError("Bot token is empty");
     }
 
-    client = new Client({ intents: DiscordConfig.INTENTS });
-
     client.on('ready', () => {
-        alt.log('[DISCORD-AUTH]', `Logged in as ${client.user.tag}!`);
+        alt.log('[DISCORD]', `Logged in as ${client.user.tag}!`);
 
         client.user.setActivity({
             name: 'alt:V',

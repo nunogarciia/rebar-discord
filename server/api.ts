@@ -1,8 +1,10 @@
 import {useRebar} from "@Server/index.js";
-import {getClient} from "./bot.js";
 import {DiscordConfig} from "./config.js";
+import {getClient} from "./bot.js";
+import {registerCommand} from "./client.js";
 
 const Rebar = useRebar();
+
 
 export function useDiscord() {
     function client() {
@@ -15,7 +17,8 @@ export function useDiscord() {
 
     return {
         client,
-        getConfig
+        getConfig,
+        registerCommand
     }
 }
 
