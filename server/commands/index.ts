@@ -13,8 +13,8 @@ import {readdir} from "fs/promises";
 import {useRebar} from "@Server/index.js";
 import {client, commands, registerCommand} from "../client.js";
 import {Account, Character} from "@Shared/types/index.js";
-import { DiscordConfig } from "@Plugins/discord/shared/config.js";
 import { useConfig } from "@Server/config/index.js";
+import { DiscordConfig } from "../../shared/config.js";
 
 const config = useConfig();
 const _TAG = "[DISCORD]";
@@ -81,7 +81,8 @@ async function refreshSlashCommands() {
         return;
     }
 
-    alt.log(_TAG, 'Started refreshing application (/) commands.');
+    if (alt.getServerConfig().debug)
+        alt.log(_TAG, 'Started refreshing application (/) commands.');
     const slashCommands = [];
 
     for ( const command of commands ) {
@@ -128,7 +129,8 @@ async function refreshSlashCommands() {
             body: slashCommands
         }
     );
-    alt.log(_TAG, 'Successfully reloaded application (/) commands.');
+    if (alt.getServerConfig().debug)
+        alt.log(_TAG, 'Successfully reloaded application (/) commands.');
 }
 
 async function commandUptime(interaction: Interaction) {
