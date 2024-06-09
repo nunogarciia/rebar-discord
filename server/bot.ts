@@ -33,7 +33,7 @@ export async function init() {
     client.login(config.get().discord_token);
     alt.setInterval(changeStates, 10000);
 
-    const embed = Embed().create(t('dc.systems.loading'), t('dc.title'), 'Orange', { text: t('dc.version') })
+    const embed = Embed().create(t('dc.systems.loading'), t('dc.systems.title'), 'Orange', { text: t('dc.version') })
     await sendMessage(embed, DiscordConfig.CHANNELS.status, DiscordConfig.MESSAGES_IDS.status)
 }
 

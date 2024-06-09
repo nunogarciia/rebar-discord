@@ -23,7 +23,7 @@ export const DiscordConfig = {
         tests: ''
     },
     MESSAGES_IDS: {
-        status: ''
+        logs: '',
     },
     BOT_WEBSITE_URL: '',
     DISABLE_DEFAULT_COMMANDS: true
