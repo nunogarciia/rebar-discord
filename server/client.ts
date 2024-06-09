@@ -1,6 +1,6 @@
 import {Client, GatewayIntentBits, Interaction} from "discord.js";
-import {DiscordConfig} from "./config.js";
 import * as alt from 'alt-server';
+import { DiscordConfig } from "../shared/config.js";
 
 type DiscordCallback = (interaction: Interaction) => Promise<void>;
 

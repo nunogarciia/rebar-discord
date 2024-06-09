@@ -9,12 +9,14 @@ import {
     SlashCommandStringOption,
     SlashCommandUserOption
 } from "discord.js";
-import {DiscordConfig} from "../config.js";
 import {readdir} from "fs/promises";
 import {useRebar} from "@Server/index.js";
 import {client, commands, registerCommand} from "../client.js";
 import {Account, Character} from "@Shared/types/index.js";
+import { DiscordConfig } from "@Plugins/discord/shared/config.js";
+import { useConfig } from "@Server/config/index.js";
 
+const config = useConfig();
 const _TAG = "[DISCORD]";
 let rest: REST = undefined;
 let uptime: number = 0;
@@ -23,7 +25,7 @@ const Rebar = useRebar();
 const db = Rebar.database.useDatabase();
 
 export async function init() {
-    rest = new REST().setToken(DiscordConfig.BOT_TOKEN);
+    rest = new REST().setToken(config.get().discord_token);
     client.on('interactionCreate', onInteraction);
 
     if ( !DiscordConfig.DISABLE_DEFAULT_COMMANDS ) {

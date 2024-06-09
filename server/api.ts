@@ -1,7 +1,7 @@
 import {useRebar} from "@Server/index.js";
-import {DiscordConfig} from "./config.js";
 import {getClient} from "./bot.js";
 import {registerCommand} from "./client.js";
+import { DiscordConfig } from "../shared/config.js";
 
 const Rebar = useRebar();
 

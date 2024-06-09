@@ -1,11 +1,13 @@
 import alt from "alt-server";
-import {DiscordConfig} from "./config.js";
 import {client} from "./client.js";
+import { DiscordConfig } from "../shared/config.js";
+import { useConfig } from "@Server/config/index.js";
 
+const config = useConfig();
 let botStateIndex: number = -1;
 
 export function init() {
-    if ( !DiscordConfig.BOT_TOKEN || DiscordConfig.BOT_TOKEN.length === 0 ) {
+    if ( !config.get().discord_token || config.get().discord_token.length === 0 ) {
         alt.logError("Bot token is empty");
     }
 
@@ -20,7 +22,7 @@ export function init() {
         });
     });
 
-    client.login(DiscordConfig.BOT_TOKEN);
+    client.login(config.get().discord_token);
     alt.setInterval(changeStates, 10000);
 }
 
