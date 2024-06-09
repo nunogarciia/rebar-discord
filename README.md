@@ -1,14 +1,17 @@
 # Discord.js integration for Rebar Framework
 
-this plugin allows you to use Discord.JS feature as a Rebar plugin API.
+This plugin allows you to use Discord.JS feature as a Rebar plugin API.
 
 visit [Discord.JS](https://discord.js.org/) how you use Discord.JS.
+
+This is a fork from [unfloned](https://github.com/unfloned/rebar-discord.git)
 
 ## Requires
 - [Rebar Framework](https://github.com/Stuyk/rebar-altv)
 
 ## Features
 - Creating easy Slash commands
+- Login directly into server with OAuth
 
 ## API
 
@@ -63,10 +66,10 @@ init(); // call init function on server plugin startup.
 From the main directory of your `Rebar` Framework.
 
 ```
-git clone https://github.com/unfloned/rebar-discord.git src/plugins/discord
+git clone https://github.com/nunogarciia/rebar-discord.git src/plugins/discord
 ```
 
-and check `server/config.ts` and add your discord bot token into `BOT_TOKEN` 
+and check `shared/config.ts` and add your discord bot token into `DISCORD_TOKEN` on your .env file.
 
 
 That's all.
